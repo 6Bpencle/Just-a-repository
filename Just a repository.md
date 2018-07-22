@@ -1,222 +1,218 @@
 ---- Minecraft Crash Report ----
 
 WARNING: coremods are present:
-  DLFMLCorePlugin ([动态光源]DynamicLights-1.10.2.jar)
-  AstralCore (【星辉魔法】astralsorcery-1.4.5.jar)
-  CXLibraryCore (cxlibrary-1.10.2-1.2.2.jar)
-  llibrary (【冰火】llibrary-1.7.7-1.10.2.jar)
-  IceAndFireForgeLoading (【冰火】iceandfire-1.0.1.jar)
+  AstralCore (astralsorcery-1.12.2-1.9.3.jar)
+  AppleCore (AppleCore-mc1.12.2-3.1.0.jar)
+  Inventory Tweaks Coremod (InventoryTweaks-1.63.jar)
+  EnderCorePlugin (EnderCore-1.12.2-0.5.35.jar)
+  CoreMod (Aroma1997Core-1.12.2-2.0.0.0.b131.jar)
+  IELoadingPlugin (ImmersiveEngineering-core-0.12-83.jar)
+  OTGCorePlugin (OTG-Core.jar)
+  DynamicSurroundingsCore (DynamicSurroundings-1.12.2-3.4.9.14.jar)
+  BetterFoliageLoader (BetterFoliage-MC1.12-2.1.10.jar)
 Contact their authors BEFORE contacting forge
 
+// You're mean.
 
-// Would you like a cupcake?
+Time: 7/22/18 7:43 AM
+Description: Exception in server tick loop
 
-
-Time: 7/21/18 3:59 PM
-Description: Ticking entity
-
-
-java.lang.IllegalArgumentException: bound must be positive
-        at java.util.Random.nextInt(Unknown Source)
-        at com.sosnitzka.taiga.traits.TraitSlaughtering.onMobDrops(TraitSlaughtering.java:31)
-        at net.minecraftforge.fml.common.eventhandler.ASMEventHandler_158_TraitSlaughtering_onMobDrops_LivingDropsEvent.invoke(.dynamic)
-        at net.minecraftforge.fml.common.eventhandler.ASMEventHandler.invoke(ASMEventHandler.java:90)
-        at net.minecraftforge.fml.common.eventhandler.EventBus.post(EventBus.java:185)
-        at net.minecraftforge.common.ForgeHooks.onLivingDrops(ForgeHooks.java:514)
-        at net.minecraft.entity.EntityLivingBase.func_70645_a(EntityLivingBase.java:1085)
-        at net.minecraft.entity.EntityLivingBase.func_70097_a(EntityLivingBase.java:970)
-        at de.teamlapen.vampirism.entity.EntityVampirism.func_70097_a(EntityVampirism.java:91)
-        at slimeknights.tconstruct.tools.melee.item.Rapier.dealHybridDamage(Rapier.java:89)
-        at slimeknights.tconstruct.tools.ranged.item.Bolt.dealDamageRanged(Bolt.java:133)
-        at slimeknights.tconstruct.library.utils.ToolHelper.attackEntity(ToolHelper.java:679)
-        at slimeknights.tconstruct.library.utils.ToolHelper.attackEntity(ToolHelper.java:572)
-        at slimeknights.tconstruct.library.entity.EntityProjectileBase.dealDamage(EntityProjectileBase.java:314)
-        at slimeknights.tconstruct.library.entity.EntityProjectileBase.onHitEntity(EntityProjectileBase.java:241)
-        at slimeknights.tconstruct.library.entity.EntityProjectileBase.updateInAir(EntityProjectileBase.java:436)
-        at slimeknights.tconstruct.library.entity.EntityProjectileBase.func_70071_h_(EntityProjectileBase.java:363)
-        at net.minecraft.world.World.func_72866_a(World.java:1967)
-        at net.minecraft.world.WorldServer.func_72866_a(WorldServer.java:839)
-        at net.minecraft.world.World.func_72870_g(World.java:1937)
-        at net.minecraft.world.World.func_72939_s(World.java:1750)
-        at net.minecraft.world.WorldServer.func_72939_s(WorldServer.java:620)
-        at net.minecraft.server.MinecraftServer.func_71190_q(MinecraftServer.java:709)
-        at net.minecraft.server.MinecraftServer.func_71217_p(MinecraftServer.java:613)
-        at net.minecraft.server.integrated.IntegratedServer.func_71217_p(IntegratedServer.java:240)
-        at net.minecraft.server.MinecraftServer.run(MinecraftServer.java:471)
-        at java.lang.Thread.run(Unknown Source)
-
-
+java.util.ConcurrentModificationException
+	at java.util.IdentityHashMap$IdentityHashMapIterator.nextIndex(Unknown Source)
+	at java.util.IdentityHashMap$KeyIterator.next(Unknown Source)
+	at aroma1997.tatw.ic2usesfe.block.ICSourceEventListener.tick(ICSourceEventListener.java:76)
+	at net.minecraftforge.fml.common.eventhandler.ASMEventHandler_1408_ICSourceEventListener_tick_WorldTickEvent.invoke(.dynamic)
+	at net.minecraftforge.fml.common.eventhandler.ASMEventHandler.invoke(ASMEventHandler.java:90)
+	at net.minecraftforge.fml.common.eventhandler.EventBus.post(EventBus.java:182)
+	at net.minecraftforge.fml.common.FMLCommonHandler.onPreWorldTick(FMLCommonHandler.java:286)
+	at net.minecraft.server.MinecraftServer.func_71190_q(MinecraftServer.java:752)
+	at net.minecraft.server.MinecraftServer.func_71217_p(MinecraftServer.java:668)
+	at net.minecraft.server.integrated.IntegratedServer.func_71217_p(IntegratedServer.java:252)
+	at net.minecraft.server.MinecraftServer.run(MinecraftServer.java:526)
+	at java.lang.Thread.run(Unknown Source)
 
 
 A detailed walkthrough of the error, its code path and all known details is as follows:
 ---------------------------------------------------------------------------------------
 
-
--- Head --
-Thread: Server thread
-Stacktrace:
-        at java.util.Random.nextInt(Unknown Source)
-        at com.sosnitzka.taiga.traits.TraitSlaughtering.onMobDrops(TraitSlaughtering.java:31)
-        at net.minecraftforge.fml.common.eventhandler.ASMEventHandler_158_TraitSlaughtering_onMobDrops_LivingDropsEvent.invoke(.dynamic)
-        at net.minecraftforge.fml.common.eventhandler.ASMEventHandler.invoke(ASMEventHandler.java:90)
-        at net.minecraftforge.fml.common.eventhandler.EventBus.post(EventBus.java:185)
-        at net.minecraftforge.common.ForgeHooks.onLivingDrops(ForgeHooks.java:514)
-        at net.minecraft.entity.EntityLivingBase.func_70645_a(EntityLivingBase.java:1085)
-        at net.minecraft.entity.EntityLivingBase.func_70097_a(EntityLivingBase.java:970)
-        at de.teamlapen.vampirism.entity.EntityVampirism.func_70097_a(EntityVampirism.java:91)
-        at slimeknights.tconstruct.tools.melee.item.Rapier.dealHybridDamage(Rapier.java:89)
-        at slimeknights.tconstruct.tools.ranged.item.Bolt.dealDamageRanged(Bolt.java:133)
-        at slimeknights.tconstruct.library.utils.ToolHelper.attackEntity(ToolHelper.java:679)
-        at slimeknights.tconstruct.library.utils.ToolHelper.attackEntity(ToolHelper.java:572)
-        at slimeknights.tconstruct.library.entity.EntityProjectileBase.dealDamage(EntityProjectileBase.java:314)
-        at slimeknights.tconstruct.library.entity.EntityProjectileBase.onHitEntity(EntityProjectileBase.java:241)
-        at slimeknights.tconstruct.library.entity.EntityProjectileBase.updateInAir(EntityProjectileBase.java:436)
-        at slimeknights.tconstruct.library.entity.EntityProjectileBase.func_70071_h_(EntityProjectileBase.java:363)
-        at net.minecraft.world.World.func_72866_a(World.java:1967)
-        at net.minecraft.world.WorldServer.func_72866_a(WorldServer.java:839)
-        at net.minecraft.world.World.func_72870_g(World.java:1937)
-
-
--- Entity being ticked --
-Details:
-        Entity Type: tconstruct.bolt (slimeknights.tconstruct.tools.common.entity.EntityBolt)
-        Entity ID: 9511
-        Entity Name: entity.tconstruct.bolt.name
-        Entity's Exact location: -41.24, 73.62, 481.07
-        Entity's Block location: World: (-42,73,481), Chunk: (at 6,4,1 in -3,30; contains blocks -48,0,480 to -33,255,495), Region: (-1,0; contains chunks -32,0 to -1,31, blocks -512,0,0 to -1,255,511)
-        Entity's Momentum: -36.55, -2.73, 26.37
-        Entity's Passengers: []
-        Entity's Vehicle: ~~ERROR~~ NullPointerException: null
-Stacktrace:
-        at net.minecraft.world.World.func_72939_s(World.java:1750)
-        at net.minecraft.world.WorldServer.func_72939_s(WorldServer.java:620)
-
-
--- Affected level --
-Details:
-        Level name: 新 宝 岛 ： 深 渊 国 度
-        All players: 1 total; [EntityPlayerMP['Lok_i'/251, l='新 宝 岛 ： 深 渊 国 度', x=-41.24, y=72.00, z=481.07]]
-        Chunk stats: ServerChunkCache: 476 Drop: 0
-        Level seed: 9203948668793535012
-        Level generator: ID 06 - BIOMESOP, ver 0. Features enabled: true
-        Level generator options: {"landScheme":"vanilla","tempScheme":"medium_zones","rainScheme":"medium_zones","biomeSize":"medium","amplitude":1.0,"generateBopOre":true,"generateBopSoils":true,"generateBopTrees":true,"generateBopGrasses":true,"generateBopFoliage":true,"generateBopFlowers":true,"generateBopPlants":true,"generateBopWaterPlants":true,"generateBopMushrooms":true,"generateRockFormations":true,"generatePoisonIvy":true,"generateFlax":true,"generateBerryBushes":true,"generateThorns":true,"generateQuicksand":true,"generateLiquidPoison":true,"generateHotSprings":true,"generateNetherHives":true,"generateNetherPlants":true,"generateEndFeatures":true}
-        Level spawn location: World: (108,64,239), Chunk: (at 12,4,15 in 6,14; contains blocks 96,0,224 to 111,255,239), Region: (0,0; contains chunks 0,0 to 31,31, blocks 0,0,0 to 511,255,511)
-        Level time: 2784024 game time, 16293 day time
-        Level dimension: 0
-        Level storage version: 0x04ABD - Anvil
-        Level weather: Rain time: 42948 (now: false), thunder time: 46028 (now: false)
-        Level game mode: Game mode: creative (ID 1). Hardcore: false. Cheats: false
-Stacktrace:
-        at net.minecraft.server.MinecraftServer.func_71190_q(MinecraftServer.java:709)
-        at net.minecraft.server.MinecraftServer.func_71217_p(MinecraftServer.java:613)
-        at net.minecraft.server.integrated.IntegratedServer.func_71217_p(IntegratedServer.java:240)
-        at net.minecraft.server.MinecraftServer.run(MinecraftServer.java:471)
-        at java.lang.Thread.run(Unknown Source)
-
-
 -- System Details --
 Details:
-        Minecraft Version: 1.10.2
-        Operating System: Windows 10 (amd64) version 10.0
-        Java Version: 1.8.0_171, Oracle Corporation
-        Java VM Version: Java HotSpot(TM) 64-Bit Server VM (mixed mode), Oracle Corporation
-        Memory: 8374117528 bytes (7986 MB) / 10093592576 bytes (9626 MB) up to 10737418240 bytes (10240 MB)
-        JVM Flags: 6 total; -XX:HeapDumpPath=MojangTricksIntelDriversForPerformance_javaw.exe_minecraft.exe.heapdump -XX:+UseG1GC -XX:-UseAdaptiveSizePolicy -XX:-OmitStackTraceInFastThrow -Xmn128m -Xmx10240m
-        IntCache: cache: 0, tcache: 0, allocated: 4, tallocated: 105
-        FML: MCP 9.32 Powered by Forge 12.18.3.2511 Optifine OptiFine_1.10.2_HD_U_C2 48 mods loaded, 48 mods active
-        States: 'U' = Unloaded 'L' = Loaded 'C' = Constructed 'H' = Pre-initialized 'I' = Initialized 'J' = Post-initialized 'A' = Available 'D' = Disabled 'E' = Errored
-        UCHIJAAAA        mcp{9.19} [Minecraft Coder Pack] (minecraft.jar) 
-        UCHIJAAAA        FML{8.0.99.99} [Forge Mod Loader] (forge-1.10.2-12.18.3.2511.jar) 
-        UCHIJAAAA        Forge{12.18.3.2511} [Minecraft Forge] (forge-1.10.2-12.18.3.2511.jar) 
-        UCHIJAAAA        LunatriusCore{1.1.2.36} [LunatriusCore] ([Mod依赖]LunatriusCore-1.10.2-1.1.2.36-universal.jar) 
-        UCHIJAAAA        Roguelike{1.5.4} [Roguelike Dungeons] ([冒险地牢]RoguelikeDungeons-1.10.2-1.5.4.jar) 
-        UCHIJAAAA        DynamicLights{1.4.3} [Dynamic Lights] ([动态光源]DynamicLights-1.10.2.jar) 
-        UCHIJAAAA        DynamicLights_onFire{1.0.7} [Dynamic Lights Burning Entity Module] ([动态光源]DynamicLights-1.10.2.jar) 
-        UCHIJAAAA        DynamicLights_creepers{1.0.6} [Dynamic Lights Creeper Module] ([动态光源]DynamicLights-1.10.2.jar) 
-        UCHIJAAAA        DynamicLights_dropItems{1.1.0} [Dynamic Lights EntityItem Module] ([动态光源]DynamicLights-1.10.2.jar) 
-        UCHIJAAAA        DynamicLights_entityClasses{1.0.1} [Dynamic Lights Entity Light Module] ([动态光源]DynamicLights-1.10.2.jar) 
-        UCHIJAAAA        DynamicLights_mobEquipment{1.1.0} [Dynamic Lights Mob Equipment Light Module] ([动态光源]DynamicLights-1.10.2.jar) 
-        UCHIJAAAA        DynamicLights_flameArrows{1.0.1} [Dynamic Lights Fiery Arrows Light Module] ([动态光源]DynamicLights-1.10.2.jar) 
-        UCHIJAAAA        DynamicLights_floodLights{1.0.3} [Dynamic Lights Flood Light] ([动态光源]DynamicLights-1.10.2.jar) 
-        UCHIJAAAA        DynamicLights_otherPlayers{1.0.9} [Dynamic Lights OtherPlayers Light Module] ([动态光源]DynamicLights-1.10.2.jar) 
-        UCHIJAAAA        DynamicLights_thePlayer{1.1.3} [Dynamic Lights Player Light Module] ([动态光源]DynamicLights-1.10.2.jar) 
-        UCHIJAAAA        Waila{1.7.0} [Waila] ([方块信息显示]Waila-1.7.0-B3_1.9.4.jar) 
-        UCHIJAAAA        cxlibrary{1.2.2} [CXLibrary] (cxlibrary-1.10.2-1.2.2.jar) 
-        UCHIJAAAA        MoreFurnaces{1.8.2} [More Furnaces] ([更多熔炉]MoreFurnaces-1.10.2-1.8.2.jar) 
-        UCHIJAAAA        InGameInfoXML{2.8.1.85} [InGame Info XML] ([游戏信息显示]InGameInfoXML-1.10.2-2.8.1.85-universal.jar) 
-        UCHIJAAAA        BiomesOPlenty{5.0.0.2089} [Biomes O' Plenty] ([超多生物群系]BiomesOPlenty-1.10.2-5.0.0.2089-universal.jar) 
-        UCHIJAAAA        VeinMiner{0.34.1_1.9-73be663} [Vein Miner] ([连锁挖矿]VeinMiner-0.34.1-1.9r571+73be663.jar) 
-        UCHIJAAAA        VeinMinerModSupport{0.34.1_1.9-73be663} [Mod Support] ([连锁挖矿]VeinMiner-0.34.1-1.9r571+73be663.jar) 
-        UCHIJAAAA        WailaHarvestability{1.1.7} [Waila Harvestability] ([采掘信息显示]WailaHarvestability-mc1.10-1.1.7.jar) 
-        UCHIJAAAA        JEI{3.14.7.419} [Just Enough Items] (【JEI】_1.10.2-3.14.7.419.jar) 
-        UCHIJAAAA        llibrary{1.7.7} [LLibrary] (【冰火】llibrary-1.7.7-1.10.2.jar) 
-        UCHIJAAAA        iceandfire{1.0.1} [Ice and Fire] (【冰火】iceandfire-1.0.1.jar) 
-        UCHIJAAAA        mantle{1.10.2-1.1.5.205} [Mantle] (【匠魂】Mantle-1.10.2-1.1.5.jar) 
-        UCHIJAAAA        tconstruct{1.10.2-2.6.5.10} [Tinkers' Construct] (【匠魂】TConstruct-1.10.2-2.6.5.jar) 
-        UCHIJAAAA        taiga{1.2.6} [Tinkers Alloying Addon] (【匠魂合金附加】taiga-1.10.2-1.2.6.jar) 
-        UCHIJAAAA        tinkertoolleveling{1.10.2-1.0.1.DEV.f5def58} [Tinkers Tool Leveling] (【匠魂工具升级】TinkerToolLeveling-1.10.2-1.0.1.jar) 
-        UCHIJAAAA        TinkersAddons{1.0.6} [Tinkers' Addons] (【匠魂拓展】Tinkers'+Addons-1.10.2-1.0.6.jar) 
-        UCHIJAAAA        moartinkers{0.4.1} [Moar Tinkers] (【匠魂更多材料】moartinkers-0.4.1.jar) 
-        UCHIJAAAA        guideapi{@VERSION@} [Guide-API] (【吸血鬼】Guide-API-1.10.2-2.0.3-46.jar) 
-        UCHIJAAAA        vampirism{1.1.3} [Vampirism] (【吸血鬼】Vampirism-1.10.2-1.1.3.jar) 
-        UCHIJAAAA        teamlapen-lib{1.1.3} [TeamLapen Library] (【吸血鬼】Vampirism-1.10.2-1.1.3.jar) 
-        UCHIJAAAA        gravestone{1.5.13} [Gravestone Mod] (【墓碑】gravestone-1.5.13.jar) 
-        UCHIJAAAA        quickhotbar{1.04} [Quick Hotbar] (【快捷工具栏】Quick-Hotbar-Mod-1.10.2.jar) 
-        UCHIJAAAA        lootbags{2.2.2} [Loot Bags] (【战利品】LootBags-1.10.2-2.2.2.jar) 
-        UCHIJAAAA        astralsorcery{1.4.5} [Astral Sorcery] (【星辉魔法】astralsorcery-1.4.5.jar) 
-        UCHIJAAAA        movillages{1.5.2} [Mo' Villages] (【更多村庄】Mo+Villages-1.5.2.jar) 
-        UCHIJAAAA        Baubles{1.3.13} [Baubles] (Baubles-1.10.2-1.3.13.jar) 
-        UCHIJAAAA        Botania{r1.9-341} [Botania] (【植物魔法】Botania r1.9-341.jar) 
-        UCHIJAAAA        abyssalcraft{1.9.4.10} [AbyssalCraft] (【深渊国度】AbyssalCraft-1.10.2-1.9.4.10.jar) 
-        UCHIJAAAA        harvestcraft{1.10.2j} [Pam's HarvestCraft] (【潘马斯丰收工艺】Pams+HarvestCraft+1.10.2j.jar) 
-        UCHIJAAAA        grimoireofgaia{1.5.3} [Grimoire of Gaia 3] (【盖亚】GrimoireOfGaia3-1.10.2-1.5.3.jar) 
-        UCHIJAAAA        thaumcraft{6.0.BETA8} [Thaumcraft] (【神秘时代6】Thaumcraft-1.10.2-6.0.BETA8.jar) 
-        UCHIJAAAA        expandablebackpack{1.1} [Expandable Backpacks] (【背包】expandableBackpacks1.1.8-1.10.2.jar) 
-        UCHIJAAAA        helpfultweaks{1.6.0} [Helpful Tweaks] (【腐肉皮革】Helpful Tweaks 1.10.2.jar) 
-        Loaded coremods (and transformers): 
-DLFMLCorePlugin ([动态光源]DynamicLights-1.10.2.jar)
-  atomicstryker.dynamiclights.common.DLTransformer
-AstralCore (【星辉魔法】astralsorcery-1.4.5.jar)
+	Minecraft Version: 1.12.2
+	Operating System: Windows 10 (amd64) version 10.0
+	Java Version: 1.8.0_171, Oracle Corporation
+	Java VM Version: Java HotSpot(TM) 64-Bit Server VM (mixed mode), Oracle Corporation
+	Memory: 1909906512 bytes (1821 MB) / 4294967296 bytes (4096 MB) up to 4294967296 bytes (4096 MB)
+	JVM Flags: 11 total; -XX:+UnlockExperimentalVMOptions -XX:+UseG1GC -XX:G1NewSizePercent=20 -XX:G1ReservePercent=20 -XX:MaxGCPauseMillis=50 -XX:G1HeapRegionSize=16M -XX:-UseAdaptiveSizePolicy -XX:-OmitStackTraceInFastThrow -Xmn128m -Xmx4096m -XX:HeapDumpPath=MojangTricksIntelDriversForPerformance_javaw.exe_minecraft.exe.heapdump
+	IntCache: cache: 0, tcache: 0, allocated: 13, tallocated: 95
+	FML: MCP 9.42 Powered by Forge 14.23.4.2739 Optifine OptiFine_1.12.2_HD_U_E2_pre 102 mods loaded, 102 mods active
+	States: 'U' = Unloaded 'L' = Loaded 'C' = Constructed 'H' = Pre-initialized 'I' = Initialized 'J' = Post-initialized 'A' = Available 'D' = Disabled 'E' = Errored
+
+	| State     | ID                                | Version                  | Source                                             | Signature                                |
+	|:--------- |:--------------------------------- |:------------------------ |:-------------------------------------------------- |:---------------------------------------- |
+	| UCHIJAAAA | minecraft                         | 1.12.2                   | minecraft.jar                                      | None                                     |
+	| UCHIJAAAA | mcp                               | 9.42                     | minecraft.jar                                      | None                                     |
+	| UCHIJAAAA | FML                               | 8.0.99.99                | forge-1.12.2-14.23.4.2739.jar                      | e3c3d50c7c986df74c645c0ac54639741c90a557 |
+	| UCHIJAAAA | forge                             | 14.23.4.2739             | forge-1.12.2-14.23.4.2739.jar                      | e3c3d50c7c986df74c645c0ac54639741c90a557 |
+	| UCHIJAAAA | otgcore                           | 1.12.2 - v7              | minecraft.jar                                      | None                                     |
+	| UCHIJAAAA | actuallyadditions                 | 1.12.2-r137              | ActuallyAdditions-1.12.2-r137.jar                  | None                                     |
+	| UCHIJAAAA | ic2                               | 2.8.92-ex112             | Industrialcraft-2-2.8.92-ex112.jar                 | de041f9f6187debbc77034a344134053277aa3b0 |
+	| UCHIJAAAA | advanced_solar_panels             | 4.2.0                    | Advanced+Solar+Panels-4.2.0.jar                    | None                                     |
+	| UCHIJAAAA | applecore                         | 3.1.0                    | AppleCore-mc1.12.2-3.1.0.jar                       | None                                     |
+	| UCHIJAAAA | jei                               | 4.11.0.204               | jei_1.12.2-4.11.0.204.jar                          | None                                     |
+	| UCHIJAAAA | appleskin                         | 1.0.9                    | AppleSkin-mc1.12-1.0.9.jar                         | None                                     |
+	| UCHIJAAAA | aroma1997core                     | 2.0.0.0.b131             | Aroma1997Core-1.12.2-2.0.0.0.b131.jar              | dfbfe4c473253d8c5652417689848f650b2cbe32 |
+	| UCHIJAAAA | aromabackup                       | 2.1.1.3.b89              | AromaBackup-1.12.2-2.1.1.3.b89.jar                 | dfbfe4c473253d8c5652417689848f650b2cbe32 |
+	| UCHIJAAAA | aromabackuprecovery               | 2.1.1.3.b89              | AromaBackup-1.12.2-2.1.1.3.b89.jar                 | None                                     |
+	| UCHIJAAAA | baubles                           | 1.5.2                    | Baubles-1.12-1.5.2.jar                             | None                                     |
+	| UCHIJAAAA | astralsorcery                     | 1.9.3                    | astralsorcery-1.12.2-1.9.3.jar                     | a0f0b759d895c15ceb3e3bcb5f3c2db7c582edf0 |
+	| UCHIJAAAA | betterbuilderswands               | 0.11.1                   | BetterBuildersWands-1.12-0.11.1.245+69d0d70.jar    | None                                     |
+	| UCHIJAAAA | betterfoliage                     | 2.1.10                   | BetterFoliage-MC1.12-2.1.10.jar                    | None                                     |
+	| UCHIJAAAA | openterraingenerator              | v6                       | OpenTerrainGenerator-1.12.2+-+v6.jar               | e9f7847a78c5342af5b0a9e04e5abc0b554d69e0 |
+	| UCHIJAAAA | biomebundle                       | 5.1                      | Biome_Bundle-1.12.2-v6.1.jar                       | None                                     |
+	| UCHIJAAAA | biomesoplenty                     | 7.0.1.2394               | BiomesOPlenty-1.12.2-7.0.1.2394-universal.jar      | None                                     |
+	| UCHIJAAAA | botania                           | r1.10-352                | Botania r1.10-352.jar                              | None                                     |
+	| UCHIJAAAA | endercore                         | 1.12.2-0.5.35            | EnderCore-1.12.2-0.5.35.jar                        | None                                     |
+	| UCHIJAAAA | codechickenlib                    | 3.2.0.345                | CodeChickenLib-1.12.2-3.2.0.345-universal.jar      | f1850c39b2516232a2108a7bd84d1cb5df93b261 |
+	| UCHIJAAAA | redstoneflux                      | 2.0.2                    | RedstoneFlux-1.12-2.0.2.3-universal.jar            | 8a6abf2cb9e141b866580d369ba6548732eff25f |
+	| UCHIJAAAA | cofhcore                          | 4.5.3                    | CoFHCore-1.12.2-4.5.3.20-universal.jar             | None                                     |
+	| UCHIJAAAA | cofhworld                         | 1.2.0                    | CoFHWorld-1.12.2-1.2.0.5-universal.jar             | 8a6abf2cb9e141b866580d369ba6548732eff25f |
+	| UCHIJAAAA | thermalfoundation                 | 2.5.0                    | ThermalFoundation-1.12.2-2.5.0.19-universal.jar    | 8a6abf2cb9e141b866580d369ba6548732eff25f |
+	| UCHIJAAAA | thermalexpansion                  | 5.5.0                    | ThermalExpansion-1.12.2-5.5.0.29-universal.jar     | 8a6abf2cb9e141b866580d369ba6548732eff25f |
+	| UCHIJAAAA | enderio                           | 5.0.29                   | EnderIO-1.12.2-5.0.29.jar                          | None                                     |
+	| UCHIJAAAA | enderiointegrationtic             | 5.0.29                   | EnderIO-1.12.2-5.0.29.jar                          | None                                     |
+	| UCHIJAAAA | mantle                            | 1.12-1.3.1.21            | Mantle-1.12-1.3.1.21.jar                           | None                                     |
+	| UCHIJAAAA | tconstruct                        | 1.12.2-2.10.1.87         | TConstruct-1.12.2-2.10.1.87.jar                    | None                                     |
+	| UCHIJAAAA | ceramics                          | 1.12-1.3.3b              | Ceramics-1.12-1.3.3b.jar                           | None                                     |
+	| UCHIJAAAA | chameleon                         | 1.12-4.1.3               | Chameleon-1.12-4.1.3.jar                           | None                                     |
+	| UCHIJAAAA | chesttransporter                  | 2.8.7                    | ChestTransporter-1.12-2.8.7.jar                    | None                                     |
+	| UCHIJAAAA | compactsolars                     | 1.12.2-5.0.17.340        | CompactSolars-1.12.2-5.0.17.340-universal.jar      | None                                     |
+	| UCHIJAAAA | controlling                       | 3.0.6                    | Controlling-3.0.6.jar                              | None                                     |
+	| UCHIJAAAA | cookingforblockheads              | 6.3.17                   | CookingForBlockheads_1.12.1-6.3.17.jar             | None                                     |
+	| UCHIJAAAA | cucumber                          | 1.0.3                    | Cucumber-1.12-1.0.3.jar                            | None                                     |
+	| UCHIJAAAA | cyclicmagic                       | 1.15.16                  | Cyclic-1.12.2-1.15.16.jar                          | None                                     |
+	| UCHIJAAAA | dsurround                         | 3.4.9.14                 | DynamicSurroundings-1.12.2-3.4.9.14.jar            | 7a2128d395ad96ceb9d9030fbd41d035b435753a |
+	| UCHIJAAAA | presets                           | 3.4.9.14                 | DynamicSurroundings-1.12.2-3.4.9.14.jar            | None                                     |
+	| UCHIJAAAA | enderiobase                       | 5.0.29                   | EnderIO-1.12.2-5.0.29.jar                          | None                                     |
+	| UCHIJAAAA | enderioconduits                   | 5.0.29                   | EnderIO-1.12.2-5.0.29.jar                          | None                                     |
+	| UCHIJAAAA | enderioconduitsappliedenergistics | 5.0.29                   | EnderIO-1.12.2-5.0.29.jar                          | None                                     |
+	| UCHIJAAAA | enderioconduitsopencomputers      | 5.0.29                   | EnderIO-1.12.2-5.0.29.jar                          | None                                     |
+	| UCHIJAAAA | enderioconduitsrefinedstorage     | 5.0.29                   | EnderIO-1.12.2-5.0.29.jar                          | None                                     |
+	| UCHIJAAAA | enderiointegrationforestry        | 5.0.29                   | EnderIO-1.12.2-5.0.29.jar                          | None                                     |
+	| UCHIJAAAA | enderiointegrationticlate         | 5.0.29                   | EnderIO-1.12.2-5.0.29.jar                          | None                                     |
+	| UCHIJAAAA | enderiomachines                   | 5.0.29                   | EnderIO-1.12.2-5.0.29.jar                          | None                                     |
+	| UCHIJAAAA | enderiopowertools                 | 5.0.29                   | EnderIO-1.12.2-5.0.29.jar                          | None                                     |
+	| UCHIJAAAA | extrautils2                       | 1.0                      | extrautils2-1.12-1.7.2.jar                         | None                                     |
+	| UCHIJAAAA | fbp                               | 2.4.0                    | FancyBlockParticles-1.12.x-2.4.0.jar               | None                                     |
+	| UCHIJAAAA | fastleafdecay                     | v14                      | FastLeafDecay-v14.jar                              | None                                     |
+	| UCHIJAAAA | foamfix                           | 0.9.9.1-1.12.2           | foamfix-0.9.9.1-1.12.2-law.jar                     | None                                     |
+	| UCHIJAAAA | ftbl                              | 4.2.5                    | FTBLib-4.2.5.jar                                   | None                                     |
+	| UCHIJAAAA | ftbu                              | 4.2.4                    | FTBUtilities-4.2.4.jar                             | None                                     |
+	| UCHIJAAAA | hud                               | 1.3.9                    | hud-1.3.9-1.12.jar                                 | None                                     |
+	| UCHIJAAAA | waila                             | 1.8.23                   | Hwyla-1.8.23-B38_1.12.jar                          | None                                     |
+	| UCHIJAAAA | theoneprobe                       | 1.4.19                   | theoneprobe-1.12-1.4.19.jar                        | None                                     |
+	| UCHIJAAAA | immersiveengineering              | 0.12-83                  | ImmersiveEngineering-0.12-83.jar                   | 4cb49fcde3b43048c9889e0a3d083225da926334 |
+	| UCHIJAAAA | immersivecables                   | 1.3.1                    | ImmersiveCables-1.12.2-1.3.1.jar                   | None                                     |
+	| UCHIJAAAA | immersivepetroleum                | 1.1.9                    | ImmersivePetroleum-1.12.2-1.1.9.jar                | None                                     |
+	| UCHIJAAAA | immersivetech                     | 1.3.10                   | Immersivetech-1.12-1.3.10.jar                      | None                                     |
+	| UCHIJAAAA | inventorytweaks                   | 1.63+release.109.220f184 | InventoryTweaks-1.63.jar                           | 55d2cd4f5f0961410bf7b91ef6c6bf00a766dcbe |
+	| UCHIJAAAA | jehc                              | 1.3.1                    | jehc-1.12-1.3.1.jar                                | None                                     |
+	| UCHIJAAAA | journeymap                        | 1.12.2-5.5.2             | Journeymap-1.12.2-5.5.2.jar                        | None                                     |
+	| UCHIJAAAA | jeresources                       | 0.8.6.28                 | JustEnoughResources-1.12.2-0.8.6.28.jar            | None                                     |
+	| UCHIJAAAA | kleeslabs                         | 5.3.2                    | KleeSlabs_1.12-5.3.2.jar                           | None                                     |
+	| UCHIJAAAA | mcjtylib_ng                       | 3.0.2                    | mcjtylib-1.12-3.0.2.jar                            | None                                     |
+	| UCHIJAAAA | mekanism                          | 1.12.2-9.4.13.349        | Mekanism-1.12.2-9.4.13.349.jar                     | None                                     |
+	| UCHIJAAAA | mekanismgenerators                | 9.4.11                   | MekanismGenerators-1.12.2-9.4.13.349.jar           | None                                     |
+	| UCHIJAAAA | mekanismtools                     | 9.4.11                   | MekanismTools-1.12.2-9.4.13.349.jar                | None                                     |
+	| UCHIJAAAA | mousetweaks                       | 2.8                      | MouseTweaks-2.8-mc1.12.1.jar                       | None                                     |
+	| UCHIJAAAA | mysticalagriculture               | 1.6.7                    | mysticalagriculture-1.12-1.6.7.jar                 | None                                     |
+	| UCHIJAAAA | mysticalagradditions              | 1.2.7                    | mysticalagradditions-1.12-1.2.7.jar                | None                                     |
+	| UCHIJAAAA | otgflatlands                      | 1.0                      | OTG-Flatlands-1.12.2-v4.jar                        | None                                     |
+	| UCHIJAAAA | otgskylands                       | 1.0                      | OTG-Skylands-1.12.2-v5.jar                         | None                                     |
+	| UCHIJAAAA | otgvoid                           | 1.0                      | OTG-Void-1.12.2-v4.jar                             | None                                     |
+	| UCHIJAAAA | harvestcraft                      | 1.12.2b                  | Pam's HarvestCraft 1.12.2b - Re-Balance Update.jar | None                                     |
+	| UCHIJAAAA | stellarapi                        | 1.12.2-0.4.2.9           | Stellar+API-1.12.2-0.4.2.9.jar                     | None                                     |
+	| UCHIJAAAA | photoptics                        | 1.12.2-0.1.1.1           | Photoptics-1.12.2-0.1.1.1.jar                      | None                                     |
+	| UCHIJAAAA | rangedpumps                       | 0.5                      | rangedpumps-0.5.jar                                | None                                     |
+	| UCHIJAAAA | redstonearsenal                   | 2.5.1                    | RedstoneArsenal-1.12.2-2.5.1.13-universal.jar      | 8a6abf2cb9e141b866580d369ba6548732eff25f |
+	| UCHIJAAAA | xreliquary                        | 1.12.2-1.3.4.728         | Reliquary-1.12.2-1.3.4.728.jar                     | None                                     |
+	| UCHIJAAAA | rftools                           | 7.54                     | rftools-1.12-7.54.jar                              | None                                     |
+	| UCHIJAAAA | rftoolscontrol                    | 1.9.1                    | rftoolsctrl-1.12-1.9.1.jar                         | None                                     |
+	| UCHIJAAAA | spiceoflife                       | 1.3.11                   | SpiceOfLife-mc1.12-1.3.11.jar                      | None                                     |
+	| UCHIJAAAA | stellarsky                        | 1.12.2-0.5.2.8           | Stellar+Sky-1.12.2-0.5.2.8.jar                     | None                                     |
+	| UCHIJAAAA | storagedrawers                    | 1.12-5.2.5               | StorageDrawers-1.12.1-5.3.3.jar                    | None                                     |
+	| UCHIJAAAA | stg                               | 1.12.2-1.2.3             | SwingThroughGrass-1.12.2-1.2.3.jar                 | None                                     |
+	| UCHIJAAAA | taiga                             | 1.3.2                    | Taiga-1.12.2-1.3.2.jar                             | None                                     |
+	| UCHIJAAAA | tatw                              | 1.0.1.2.b19              | Tatw-1.12.2-1.0.1.2.b19.jar                        | dfbfe4c473253d8c5652417689848f650b2cbe32 |
+	| UCHIJAAAA | thermaldynamics                   | 2.5.1                    | ThermalDynamics-1.12.2-2.5.1.14-universal.jar      | 8a6abf2cb9e141b866580d369ba6548732eff25f |
+	| UCHIJAAAA | tinkertoolleveling                | 1.12-1.0.3.DEV.56fac4f   | TinkerToolLeveling-1.12-1.0.3.jar                  | None                                     |
+	| UCHIJAAAA | torcherino                        | 7.1                      | torcherino-7.1.jar                                 | None                                     |
+	| UCHIJAAAA | twilightforest                    | 3.5.263                  | twilightforest-1.12.2-3.5.263-universal.jar        | None                                     |
+	| UCHIJAAAA | veinminer                         | 0.38.1                   | VeinMiner-1.12-0.38.1.639+134fb1e.jar              | None                                     |
+	| UCHIJAAAA | veinminermodsupport               | 0.38.1                   | VeinMiner-1.12-0.38.1.639+134fb1e.jar              | None                                     |
+	| UCHIJAAAA | wanionlib                         | 1.12.2-1.4               | WanionLib-1.12.2-1.4.jar                           | None                                     |
+	| UCHIJAAAA | unidict                           | 1.12.2-1.9b              | UniDict-1.12.2-1.9b.jar                            | None                                     |
+
+	Loaded coremods (and transformers): 
+AstralCore (astralsorcery-1.12.2-1.9.3.jar)
   
-CXLibraryCore (cxlibrary-1.10.2-1.2.2.jar)
-  cubex2.cxlibrary.CoreModTransformer
-llibrary (【冰火】llibrary-1.7.7-1.10.2.jar)
-  net.ilexiconn.llibrary.server.core.plugin.LLibraryTransformer
-  net.ilexiconn.llibrary.server.core.patcher.LLibraryRuntimePatcher
-IceAndFireForgeLoading (【冰火】iceandfire-1.0.1.jar)
-  com.github.alexthe666.iceandfire.access.IceAndFireTransformer
-        GL info: ~~ERROR~~ RuntimeException: No OpenGL context found in the current thread.
-        Pulsar/tconstruct loaded Pulses: 
-                - TinkerCommons (Enabled/Forced)
-                - TinkerWorld (Enabled/Not Forced)
-                - TinkerTools (Enabled/Not Forced)
-                - TinkerHarvestTools (Enabled/Forced)
-                - TinkerMeleeWeapons (Enabled/Forced)
-                - TinkerRangedWeapons (Enabled/Forced)
-                - TinkerModifiers (Enabled/Forced)
-                - TinkerSmeltery (Enabled/Not Forced)
-                - TinkerGadgets (Enabled/Not Forced)
-                - TinkerOredict (Enabled/Forced)
-                - TinkerIntegration (Enabled/Forced)
-                - TinkerFluids (Enabled/Forced)
-                - TinkerMaterials (Enabled/Forced)
-                - TinkerModelRegister (Enabled/Forced)
-                - WailaIntegration (Enabled/Not Forced)
+AppleCore (AppleCore-mc1.12.2-3.1.0.jar)
+  squeek.applecore.asm.TransformerModuleHandler
+Inventory Tweaks Coremod (InventoryTweaks-1.63.jar)
+  invtweaks.forge.asm.ContainerTransformer
+EnderCorePlugin (EnderCore-1.12.2-0.5.35.jar)
+  com.enderio.core.common.transform.EnderCoreTransformer
+  com.enderio.core.common.transform.SimpleMixinPatcher
+CoreMod (Aroma1997Core-1.12.2-2.0.0.0.b131.jar)
+  
+IELoadingPlugin (ImmersiveEngineering-core-0.12-83.jar)
+  blusunrize.immersiveengineering.common.asm.IEClassTransformer
+OTGCorePlugin (OTG-Core.jar)
+  com.pg85.otg.forge.asm.OTGClassTransformer
+DynamicSurroundingsCore (DynamicSurroundings-1.12.2-3.4.9.14.jar)
+  org.blockartistry.DynSurround.asm.Transformer
+BetterFoliageLoader (BetterFoliage-MC1.12-2.1.10.jar)
+  mods.betterfoliage.loader.BetterFoliageTransformer
+	GL info: ~~ERROR~~ RuntimeException: No OpenGL context found in the current thread.
+	Pulsar/tconstruct loaded Pulses: 
+		- TinkerCommons (Enabled/Forced)
+		- TinkerWorld (Enabled/Not Forced)
+		- TinkerTools (Enabled/Not Forced)
+		- TinkerHarvestTools (Enabled/Forced)
+		- TinkerMeleeWeapons (Enabled/Forced)
+		- TinkerRangedWeapons (Enabled/Forced)
+		- TinkerModifiers (Enabled/Forced)
+		- TinkerSmeltery (Enabled/Not Forced)
+		- TinkerGadgets (Enabled/Not Forced)
+		- TinkerOredict (Enabled/Forced)
+		- TinkerIntegration (Enabled/Forced)
+		- TinkerFluids (Enabled/Forced)
+		- TinkerMaterials (Enabled/Forced)
+		- TinkerModelRegister (Enabled/Forced)
+		- wailaIntegration (Enabled/Not Forced)
+		- theoneprobeIntegration (Enabled/Not Forced)
 
+	Ender IO: Found the following problem(s) with your installation (That does NOT mean that Ender IO caused the crash or was involved in it in any way. We add this information to help finding common problems, not as an invitation to post any crash you encounter to Ender IO's issue tracker. Always check the stack trace above to see which mod is most likely failing.):
+                  * Optifine is installed. This is NOT supported.
+                 This may (look up the meaning of 'may' in the dictionary if you're not sure what it means) have caused the error. Try reproducing the crash WITHOUT this/these mod(s) before reporting it.
 
-        Profiler Position: N/A (disabled)
-        Player Count: 1 / 8; [EntityPlayerMP['Lok_i'/251, l='新 宝 岛 ： 深 渊 国 度', x=-41.24, y=72.00, z=481.07]]
-        Type: Integrated Server (map_client.txt)
-        Is Modded: Definitely; Client brand changed to 'fml,forge'
-        OptiFine Version: OptiFine_1.10.2_HD_U_C2
-        Render Distance Chunks: 7
-        Mipmaps: 1
-        Anisotropic Filtering: 4
-        Antialiasing: 2
-        Multitexture: true
-        Shaders: null
-        OpenGlVersion: 4.6.0 NVIDIA 398.36
-        OpenGlRenderer: GeForce GTX 960M/PCIe/SSE2
-        OpenGlVendor: NVIDIA Corporation
+	!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+	!!!You are looking at the diagnostics information, not at the crash.       !!!
+	!!!Scroll up until you see the line with '---- Minecraft Crash Report ----'!!!
+	!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 
-        CpuCount: 4
+	Profiler Position: N/A (disabled)
+	Player Count: 1 / 8; [EntityPlayerMP['Myrddin'/476, l='Biome Bundle', x=396.00, y=68.00, z=-1769.00]]
+	Type: Integrated Server (map_client.txt)
+	Is Modded: Definitely; Client brand changed to 'fml,forge'
+	OptiFine Version: OptiFine_1.12.2_HD_U_E2_pre
+	OptiFine Build: 20180718-153703
+	Render Distance Chunks: 16
+	Mipmaps: 0
+	Anisotropic Filtering: 1
+	Antialiasing: 0
+	Multitexture: false
+	Shaders: null
+	OpenGlVersion: 4.6.0 NVIDIA 398.36
+	OpenGlRenderer: GeForce GTX 980 Ti/PCIe/SSE2
+	OpenGlVendor: NVIDIA Corporation
+	CpuCount: 8
