@@ -19,11 +19,8 @@ I understand how I will continue to develop new abilities and strengths to help 
 I can fully describe/express my attributes, characteristics, and skills.
 
 I can clearly understand how I will continue to develop new abilities and strengths to help me meet new challenges
-Learning Styles at School
 
-
-
-(4 marks)
+Learning Styles at School(4 marks)
 	My project does not demonstrate my understanding of how I use my different learning styles in school. 
 
 I do not provide examples for each learning style.
@@ -35,10 +32,9 @@ I show different examples for each learning style.
 	My project fully demonstrates my understanding of how I use my different learning styles in school.
 
 I show multiple, different examples for each learning style.
-Learning Styles in My Own Life
 
-
-(4 marks)	My project does not demonstrate my understanding of how I use my different learning styles in my own life. 
+Learning Styles in My Own Life(4 marks)
+My project does not demonstrate my understanding of how I use my different learning styles in my own life. 
 
 I do not provide examples for each learning style.
 	My project somewhat demonstrates my understanding of how I use my different learning styles in my own life. 
@@ -49,8 +45,9 @@ I show different examples for each learning style.
 	My project fully demonstrates my understanding of how I use my different learning styles in my own life.
 
 I show multiple, different examples for each learning style.
-Presentation
 
-
-
-(4 marks)	My project is messy, disorganized, missing elements, lacking colour, full of spelling and grammar errors. 	My project is somewhat neat, somewhat organized, includes some of the elements, has some colour, has many spelling and grammar errors.	My project is neat, organized, includes most of the elements, is colourful, has few spelling and grammar errors.	My project is neat, well organized, includes all of the elements, is colourful, has little to no spelling and grammar errors and includes additional elements.
+Presentation(4 marks)	
+My project is messy, disorganized, missing elements, lacking colour, full of spelling and grammar errors.
+My project is somewhat neat, somewhat organized, includes some of the elements, has some colour, has many spelling and grammar errors.
+My project is neat, organized, includes most of the elements, is colourful, has few spelling and grammar errors.
+My project is neat, well organized, includes all of the elements, is colourful, has little to no spelling and grammar errors and includes additional elements.
